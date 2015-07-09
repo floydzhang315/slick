@@ -12,8 +12,8 @@ val l = q.list()(session)
 ```
 如果你只需要单个查询结果，你可以使用 first 或 firstOption 方法，而方法 foreach， foldLeft 和 elements 方法可以用来遍历查询结果而不需要先把结果复制到另外一个 Scala 集合对象中。
 
-**Deleting**
-删除数据和查询很类似，你首先写一个选择查询，然后调用它的 delete 方法，同样 Slick 也定义一个从 Query 到 DeleteInvoker 的隐含转换，DeleteInvoker 定义了 delete 方法
+**Deleting**  
+删除数据和查询很类似，你首先写一个选择查询，然后调用它的 delete 方法，同样 Slick 也定义一个从 Query 到 DeleteInvoker 的隐含转换，DeleteInvoker 定义了 delete 方法。
 ```
 val affectedRowsCount = q.delete
 val invoker = q.deleteInvoker
@@ -21,7 +21,7 @@ val statement = q.deleteStatement
 ```
 定义用来删除记录的查询时只能使用单个表格。
 
-**Inserting**
+**Inserting**  
 插入操作基于单个表定义的字段映射，当你直接使用某个表来插入数据时，这个操作基于表类型中定义的“*”，如果你省略某些字段，那么插入这些省略的字段会使用缺省值，所有的插入操作方法定义在 InsertInvoker 和 FullInsertInvoker。
 ```
 coffees += ("Colombian", 101, 7.99, 0, 0)
@@ -62,7 +62,7 @@ users2 insert (users.map { u => (u.id, u.first ++ " " ++ u.last) })
 
 users2 insertExpr (users.length + 1, "admin")
 ```
-**Updating**
+**Updating**  
 更新记录也是先写查询，然后调用 update 方法，比如：
 ```
 val q = for { c <- coffees if c.name === "Espresso" } yield c.price
@@ -73,7 +73,7 @@ val invoker = q.updateInvoker
 ```
 update 方法定义在 UpdateInvoker Trait 中。
 
-**Compiled Queries**
+**Compiled Queries**  
 数据库查询时，通常需要定义一些查询参数，比如根据 ID 查找对应的记录。你可以定义一个带参数的函数来定义查询对象，但每次调用该函数时都要重新编译这个查询语句，系统消耗有些大，Slick 支持预编译这个带参数的查询函数，例如：
 ```
 def userNameByIDRange(min: Column[Int], max: Column[Int]) =

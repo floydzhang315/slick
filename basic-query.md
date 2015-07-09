@@ -67,7 +67,7 @@ object Example extends App {
         }
 ```
 用来连接数据库，并且创建一个 Session 对象，所有数据库相关查询都可以在这个代码块中实现，这里我们打印出 Album 中所有记录：
-！[图片](images/20140716001.png)
+![图片](images/20140716001.png)
 Album 为一集合对象，因此我们可以使用 Scala 集合对象支持的方法，来过滤，比较，比如：
 ```
 val q1= for (a <- Album;if a.albumid<10)
@@ -106,7 +106,7 @@ INNER JOIN artist
 ON album.ArtistId=artist.ArtistId
 WHERE album.AlbumId<10
 ```
-！[图片](images/20140716002.png)
+![图片](images/20140716002.png)
 那么使用 Scala 语句如何实现呢，也就是多个集合对象 Join 的情况：
 ```
 val q3 = for {
@@ -125,6 +125,7 @@ val q2 = for {
 q2 foreach println
 ```
 两种方法都输出如下结果：
+```
 (1,For Those About To Rock We Salute You,Some(AC/DC))
 (2,Balls to the Wall,Some(Accept))
 (3,Restless and Wild,Some(Accept))
@@ -134,3 +135,4 @@ q2 foreach println
 (7,Facelift,Some(Alice In Chains))
 (8,Warner 25 Anos,Some(Antônio Carlos Jobim))
 (9,Plays Metallica By Four Cellos,Some(Apocalyptica))
+```

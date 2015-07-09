@@ -31,7 +31,7 @@ Slick 使用 SLF4J 作为日志库文件。
 
 我们在命令行输入 sbt，进入 SBT 控制台。
 
-然后我们使用 console，进入 Scala 控制台，注意此时 SBT 自动把 build.sbt 中引用到的库比如 slick， mysql 添加到 Scala 控制台，我们使用如下命令：
+然后我们使用 console，进入 Scala 控制台，注意此时 SBT 自动把 build.sbt 中引用到的库比如 slick，mysql 添加到 Scala 控制台，我们使用如下命令：
 ```
 scala.slick.model.codegen.SourceCodeGenerator.main(
     Array(slickDriver, jdbcDriver, url, outputFolder, pkg, user, password)

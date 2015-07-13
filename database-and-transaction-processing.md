@@ -4,6 +4,7 @@
 **使用 JDBC URL**  
 你可以使用 JDBC URL 来创建一个 Database 对象（URL 的格式取决于连接的数据库的类型），
 比如：
+
 ```
 val db = Database.forURL("jdbc:h2:mem:test1;DB_CLOSE_DELAY=-1", driver="org.h2.Driver")
 ```

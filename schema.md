@@ -1,6 +1,6 @@
-# 数据库 Schema
+# 数据库 Schema  
 我们之前 Slick 编程(2): 准备开发环境使用自动代码生成工具生成数据库表的 Slick 定义（使用 Lifted Embedding API )，本篇介绍如何手工来写这些 Schema 定义。
-**数据库表 Tables**
+**数据库表 Tables**  
 为了能够使用 Slick 的 Lifted Embedding API 定义类型安全的查询，首先我们需要定义数据库表代表表中每行数据的类和对应于数据库表的 Schema 的 TableQuery 值，我们先看看自动生成的 Album 表个相关定义：
 ```
 /** Entity class storing rows of table Album
@@ -57,13 +57,13 @@ NotNull，Nullable 表明该字段是否可以为空
 
 每个表定义都需要一个"*"方法定义了缺省映射，这定义了执行查询返回表格一行时的数据类型，Slick 的”*”不要求和数据库表的定义一一映射，你可以添加字段（复合字段）或者省略掉某个字段。
 
-**匹配过的表定义**
+**匹配过的表定义**  
 可以使用自定义的数据类型做为”*”的映射，这可以使用双向映射操作符”<>“来完成。
 比如：
 ```
 def * = (albumid, title, artistid) <> (AlbumRow.tupled, AlbumRow.unapply)
 ```
-**约束**
+**约束**  
 外键约束可以使用foreignKey来定义
 ```
 /** Foreign key referencing Artist (database name FK_AlbumArtistId) */
@@ -88,7 +88,7 @@ class A(tag: Tag) extends Table[(Int, Int)](tag, "a") {
     //   create unique index "idx_a" on "a" ("k1","k2")
 }
 ```
-**数据库定义语言 DDL**
+**数据库定义语言 DDL**  
 数据库定义语句可以使用 TableQuery 的 ddl 方法，多个 DDL 对象可以使用 ++ 连接，
 比如：
 ```

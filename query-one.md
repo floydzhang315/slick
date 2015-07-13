@@ -1,7 +1,7 @@
-# 查询（一）
+# 查询（一）  
 本篇介绍 Slick 的基本查询，比如选择，插入，更新，删除记录等。
 
-**排序和过滤**
+**排序和过滤**  
 Slick 提供了多种方法可以用来排序和过滤，比如：
 ```
 val q = Album.filter(_.albumid === 101)
@@ -19,7 +19,7 @@ val q = Album.sortBy(_.title.desc)
 //select `AlbumId`, `Title`, `ArtistId` 
 //from `Album` order by `Title` desc
 ```
-**Join 和 Zipping**
+**Join 和 Zipping**  
 Join 指多表查询，可以有两种不同的方法来实现多表查询，一种是通过明确调用支持多表连接的方法（比如 innerJoin 方法）返回一个多元组，另外一种为隐含连接( implicit join )，它不直接使用这些连接方法（比如 LeftJoin 方法）。
 
 一个隐含的 cross-Join 为 Query 的 flatMap 操作（在 for 表达式中使用多个生成式），例如：

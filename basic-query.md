@@ -1,4 +1,4 @@
-# 基本查询
+# 基本查询  
 我们准备好了开发环境，下面就来看看 Slick 的基本查询方法，我们打算查询 Chinook 中的 Album 表，我们先看看之前自动生成的代码中表 Album 的定义：
 ```
 /** Entity class storing rows of table Album
@@ -106,7 +106,7 @@ INNER JOIN artist
 ON album.ArtistId=artist.ArtistId
 WHERE album.AlbumId<10
 ```
-！[图片](images/20140716002.png)
+![图片](images/20140716002.png)
 那么使用 Scala 语句如何实现呢，也就是多个集合对象 Join 的情况：
 ```
 val q3 = for {

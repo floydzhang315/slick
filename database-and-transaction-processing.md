@@ -1,7 +1,9 @@
 # 数据库连接和事务处理  
 你可以在程序的任何地方使用数据库查询，当执行查询时你需要有一个数据库连接。
-你可以通过创建一个 Database 对象来连接一个 JDBC 数据库，有多种方法可以创建一个数据库对象。
-**使用 JDBC URL**  
+你可以通过创建一个 Database 对象来连接一个 JDBC 数据库，有多种方法可以创建一个数据库对象。  
+
+**使用 JDBC URL**   
+
 你可以使用 JDBC URL 来创建一个 Database 对象（URL 的格式取决于连接的数据库的类型），
 比如：
 
@@ -15,19 +17,19 @@ val db = Database.forURL("jdbc:mysql://127.0.0.1/Chinook",
     user="user",
     password="password")
 ```
-**使用DataSource**  
+**使用 DataSource**  
 你可以使用已有的 datasource 对象，来构建一个 Database 对象，比如你从连接池中取得一个 Datasource 对象，然后连接到 Slick 库中
 ```
 val db = Database.forDataSource(dataSource: javax.sql.DataSource)
 ```
 之后你创建一个 Session 对象，将从连接池中取得一个数据库连接，当关闭 Session 时，连接退回给连接池以作他用。
 
-**使用JNDI 名称**  
+**使用 JNDI 名称**  
 如果你使用 JNDI，你可以提供 JNDI 名称来构建一个 Database 对象：
 ```
 val db = Database.forName(jndiName: String)
 ```
-**Session管理**  
+**Session 管理**  
 现在你有了一个数据库对象可以打开一个数据库（Slick 函数库封装了一个 Session 对象）
 
 Database 的 withSession 方法，创建一个 Session 对象，它可以传递给一个函数，函数返回时自动关闭这个 Session 对象，如果你使用连接池，关闭 Session 对象，自动将连接退回连接池。

@@ -1,5 +1,5 @@
 # 准备开发环境
-本篇介绍如果设置使用 Slick 的 Scala 开发环境，这里我们使用 SBT 命令行，SBT  使用的目录结构和 Maven 一样，我们可以创建一个目录，比如 Slick ，然后创建如下的缺省目录结构：
+本篇介绍如果设置使用 Slick 的 Scala 开发环境，这里我们使用 SBT 命令行，SBT 使用的目录结构和 Maven 一样，我们可以创建一个目录，比如 Slick ，然后创建如下的缺省目录结构：
 
 - src
   - main
@@ -31,7 +31,7 @@ Slick 使用 SLF4J 作为日志库文件。
 
 我们在命令行输入 sbt，进入 SBT 控制台。
 
-然后我们使用 console，进入 Scala 控制台，注意此时 SBT 自动把 build.sbt 中引用到的库比如 slick，mysql 添加到 Scala 控制台，我们使用如下命令：
+然后我们使用 console，进入 Scala 控制台，注意此时 SBT 自动把 build.sbt 中引用到的库比如 slick， mysql 添加到 Scala 控制台，我们使用如下命令：
 ```
 scala.slick.model.codegen.SourceCodeGenerator.main(
     Array(slickDriver, jdbcDriver, url, outputFolder, pkg, user, password)
@@ -486,4 +486,8 @@ class Employee(tag: Tag) extends Table[EmployeeRow](tag, "Employee") {
     /** Collection-like TableQuery object for table Track */
     lazy val Track = new TableQuery(tag => new Track(tag))
 }
+```
+
+```
+
 ```

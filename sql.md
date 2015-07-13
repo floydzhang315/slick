@@ -7,8 +7,7 @@ import scala.slick.jdbc.JdbcBackend.Database
 import Q.interpolation
 ```
 其中最重要的一个相关类似 StaticQuery，为简洁起见，我们使用 Q 作为它的别名。连接数据库还是和以前一样 [Slick 编程(4): 数据库连接和事务处理](database-and-transaction-processing.md)
-
-**DDL 和 DML 语句**  
+**DDL 和 DML 语句**
 StaticQuery 的方法 updateNA，（NA 代表无参数），它返回 DDL 指令影响的行数，比如使用 H2 数据库
 
 连接数据库：
@@ -63,7 +62,7 @@ Seq(
 ```
 这段代码相对于 insert into coffees values (?,?,?,?,?)
 
-**查询语句**  
+**查询语句**
 和 updateNA 类似， StaticQuery 还有一个 queryNA 方法，它支持一个类型参数（代表表的一行），比如：
 ```
 Q.queryNA[AlbumRow]("select * from Album") foreach { a => 

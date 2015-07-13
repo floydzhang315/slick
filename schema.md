@@ -1,6 +1,7 @@
 # 数据库 Schema  
 我们之前 Slick 编程(2): 准备开发环境使用自动代码生成工具生成数据库表的 Slick 定义（使用 Lifted Embedding API )，本篇介绍如何手工来写这些 Schema 定义。
-**数据库表 Tables**  
+
+**数据库表 Tables**   
 为了能够使用 Slick 的 Lifted Embedding API 定义类型安全的查询，首先我们需要定义数据库表代表表中每行数据的类和对应于数据库表的 Schema 的 TableQuery 值，我们先看看自动生成的 Album 表个相关定义：
 ```
 /** Entity class storing rows of table Album

@@ -84,6 +84,7 @@ q1 foreach println
 (7,Facelift,5)
 (8,Warner 25 Anos,6)
 (9,Plays Metallica By Four Cellos,7)
+
 ```
 val q1= for (a <- Album;if a.albumid<10)
     yield a.albumid.asColumnOf[String] ++ LiteralColumn(":") ++ a.title

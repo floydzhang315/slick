@@ -1,4 +1,4 @@
-# 查询（二）
+# 查询（二）  
 **Union**  
 两个查询的结果可以通过 ++ （或者 unionAll ) 和 union 操作联合起来：
 ```
@@ -9,7 +9,7 @@ val unionAllQuery = q1 ++ q2
 ```
 union 操作会去掉重复的结果，而 unionAll 只是简单的把两个查询结果连接起来（通常来说比较高效）。
 
-**Aggregation**  
+**Aggregation**   
 和 SQL 一样，Slick 也有 min，max，sum，avg 等集合操作
 ```
 val q = Album.map(_.artistid)

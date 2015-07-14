@@ -1,4 +1,4 @@
-# 查询（一）
+# 查询（一）  
 本篇介绍 Slick 的基本查询，比如选择，插入，更新，删除记录等。
 
 **排序和过滤**  
@@ -20,7 +20,7 @@ val q = Album.sortBy(_.title.desc)
 //from `Album` order by `Title` desc
 ```
 **Join 和 Zipping**  
-Join 指多表查询，可以有两种不同的方法来实现多表查询，一种是通过明确调用支持多表连接的方法(比如 innerJoin 方法)返回一个多元组，另外一种为隐含连接(implicit join)，它不直接使用这些连接方法（比如 LeftJoin 方法）。
+Join 指多表查询，可以有两种不同的方法来实现多表查询，一种是通过明确调用支持多表连接的方法（比如 innerJoin 方法）返回一个多元组，另外一种为隐含连接( implicit join )，它不直接使用这些连接方法（比如 LeftJoin 方法）。
 
 一个隐含的 cross-Join 为 Query 的 flatMap 操作（在 for 表达式中使用多个生成式），例如：
 ```
@@ -73,7 +73,7 @@ val explicitRightOuterJoin   = for {
 //right outer join (select x8.`ArtistId` as x9, x8.`Name` as x5 from `Artist` x8) x4 on x2.x7 = x4.x9
 
 ```
-注意 leftJoin 和 rightJoin 中的 b.name.? 和 a.title.? 的”.?” 这是因为外部查询时会产生额外的NULL值，你必须保证返回 Option 类型的值。
+注意 leftJoin 和 rightJoin 中的 b.name.? 和 a.title.? 的”.?” 这是因为外部查询时会产生额外的 NULL 值，你必须保证返回 Option 类型的值。
 除了通常的 InnerJoin，LeftJoin，RightJoin 之外，Scala 还提供了 Zip 方法，它的语法类似于 Scala 的集合类型，比如： 
 ```
 val zipJoinQuery  = for {

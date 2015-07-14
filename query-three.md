@@ -1,5 +1,5 @@
-# 查询（三）
-Slick 的查询实际上是执行由 Invoker（无参数时为 UnitInvoker ) Trait定义的方法，Slick 定义了一个从 Query 隐含的变换,使得你可以直接执行查询操作，最常用的一个情况是把整个查询结果存放到一个 Scala 集合类型中（比如使用 list 方法）
+# 查询（三）  
+Slick 的查询实际上是执行由 Invoker（无参数时为 UnitInvoker ) Trait 定义的方法，Slick 定义了一个从 Query 隐含的变换,使得你可以直接执行查询操作，最常用的一个情况是把整个查询结果存放到一个 Scala 集合类型中（比如使用 list 方法）
 ```
 val l = q.list
 val v = q.buildColl[Vector]
@@ -13,7 +13,7 @@ val l = q.list()(session)
 如果你只需要单个查询结果，你可以使用 first 或 firstOption 方法，而方法 foreach， foldLeft 和 elements 方法可以用来遍历查询结果而不需要先把结果复制到另外一个 Scala 集合对象中。
 
 **Deleting**  
-删除数据和查询很类似，你首先写一个选择查询，然后调用它的 delete 方法，同样 Slick 也定义一个从 Query 到 DeleteInvoker 的隐含转换，DeleteInvoker 定义了 delete 方法。
+删除数据和查询很类似，你首先写一个选择查询，然后调用它的 delete 方法，同样 Slick 也定义一个从 Query 到 DeleteInvoker 的隐含转换，DeleteInvoker 定义了 delete 方法
 ```
 val affectedRowsCount = q.delete
 val invoker = q.deleteInvoker

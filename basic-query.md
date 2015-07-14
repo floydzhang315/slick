@@ -1,4 +1,4 @@
-# 基本查询
+# 基本查询  
 我们准备好了开发环境，下面就来看看 Slick 的基本查询方法，我们打算查询 Chinook 中的 Album 表，我们先看看之前自动生成的代码中表 Album 的定义：
 ```
 /** Entity class storing rows of table Album
@@ -74,7 +74,7 @@ val q1= for (a <- Album;if a.albumid<10)
      yield (a.albumid,a.title,a.artistid)
 q1 foreach println
 ```
-显示前9条记录：
+显示前 9 条记录：
 (1,For Those About To Rock We Salute You,1)
 (2,Balls to the Wall,2)
 (3,Restless and Wild,2)
@@ -84,6 +84,7 @@ q1 foreach println
 (7,Facelift,5)
 (8,Warner 25 Anos,6)
 (9,Plays Metallica By Four Cellos,7)
+
 ```
 val q1= for (a <- Album;if a.albumid<10)
     yield a.albumid.asColumnOf[String] ++ LiteralColumn(":") ++ a.title
@@ -125,6 +126,7 @@ val q2 = for {
 q2 foreach println
 ```
 两种方法都输出如下结果：
+
 ```
 (1,For Those About To Rock We Salute You,Some(AC/DC))
 (2,Balls to the Wall,Some(Accept))

@@ -1,7 +1,7 @@
-# 数据库 Schema
-我们之前 [Slick 编程(2): 准备开发环境](environment.md)使用自动代码生成工具生成数据库表的 Slick 定义（使用 Lifted Embedding API)，本篇介绍如何手工来写这些 Schema 定义。
+# 数据库 Schema  
+我们之前 Slick 编程(2): 准备开发环境使用自动代码生成工具生成数据库表的 Slick 定义（使用 Lifted Embedding API )，本篇介绍如何手工来写这些 Schema 定义。
 
-**数据库表 Tables**  
+**数据库表 Tables**   
 为了能够使用 Slick 的 Lifted Embedding API 定义类型安全的查询，首先我们需要定义数据库表代表表中每行数据的类和对应于数据库表的 Schema 的 TableQuery 值，我们先看看自动生成的 Album 表个相关定义：
 ```
 /** Entity class storing rows of table Album
@@ -36,7 +36,7 @@
   /** Collection-like TableQuery object for table Album */
   lazy val Album = new TableQuery(tag => new Album(tag))
 ```
-所有的字段(Column)使用 column 方法来定义，每个字段对应一个 Scala 类型和一个字段名称（对应到数据库表的定义），下面为 Slick 支持的基本数据类型：
+所有的字段（Column）使用 column 方法来定义，每个字段对应一个 Scala 类型和一个字段名称（对应到数据库表的定义），下面为 Slick 支持的基本数据类型：
 
  
 
@@ -48,13 +48,13 @@
  - Unit
  - java.util.UUID
 
-支持 Null 的字段使用 Option[T] 来表示，其中 T 为上述基本数据类型，在字段名称之后，你可以使用一些可选的字段定义，这些可选定义定义在 table 的O对象中。下面为常用的定义
+支持 Null 的字段使用 Option[T] 来表示，其中 T 为上述基本数据类型，在字段名称之后，你可以使用一些可选的字段定义，这些可选定义定义在 table 的 O 对象中。下面为常用的定义
 
 PrimaryKey 表明该字段为主键
 Default[T](defaultValue: T) 该字段缺省值
 DBType(dbType: String) 非标准字段类型，比如 DBType(“VARCHAR(20)”) 做为 String 类型
 AutoInc 自动增一的字段
-NotNull, Nullable 表明该字段是否可以为空
+NotNull，Nullable 表明该字段是否可以为空
 
 每个表定义都需要一个"*"方法定义了缺省映射，这定义了执行查询返回表格一行时的数据类型，Slick 的”*”不要求和数据库表的定义一一映射，你可以添加字段（复合字段）或者省略掉某个字段。
 
